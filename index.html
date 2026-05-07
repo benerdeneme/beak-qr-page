@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="theme-color" content="#553b2f" />
+<title>Beak Coffee — Bizimle Bağlan</title>
+<meta name="description" content="Beak Coffee — 3. nesil kahvecilik · Roastery. Topraktan fincana, fırından kalbe." />
+<style>
+@font-face {
+  font-family: 'Molitor Display';
+  src: url('assets/Molitor-Display-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Isidora';
+  src: url('assets/Isidora-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --san-marco: #f2efec;
+  --dawn-pink: #e7dacf;
+  --mocha-mousse: #a47864;
+  --royal-brown: #553b2f;
+  --jacko-bean: #3e4127;
+  --neutral-black: #0b0b0b;
+  --divider: rgba(85, 59, 47, 0.16);
+  --divider-soft: rgba(85, 59, 47, 0.08);
+  --divider-light: rgba(242, 239, 236, 0.20);
+  --muted: rgba(85, 59, 47, 0.55);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--san-marco);
+  font-family: 'Isidora', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--royal-brown);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@keyframes qr-fadeup {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes qr-fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes qr-fadeslide {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.qr-root {
+  background: var(--san-marco);
+  min-height: 100%;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 24px;
+  overflow: hidden;
+}
+
+/* HERO */
+.qr-hero {
+  position: relative;
+  background: var(--royal-brown);
+  color: var(--san-marco);
+  padding: 30px 26px 32px;
+  overflow: hidden;
+  border-radius: 0 0 28px 28px;
+}
+
+.qr-hero-bird {
+  position: absolute;
+  top: -50px;
+  right: -90px;
+  pointer-events: none;
+  animation: qr-fadein 1.2s ease-out both;
+}
+
+.qr-hero-logo {
+  margin-bottom: 26px;
+  animation: qr-fadeup 0.7s 0.1s ease-out both;
+}
+
+.qr-hero-tagline {
+  font-family: 'Molitor Display', serif;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  margin: 0 0 24px;
+  text-transform: uppercase;
+  animation: qr-fadeup 0.7s 0.2s ease-out both;
+  color: var(--san-marco);
+}
+
+.qr-hero-tagline em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--mocha-mousse);
+}
+
+.qr-hero-rule {
+  height: 1px;
+  background: var(--divider-light);
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* PLATE */
+.qr-plate {
+  margin: 26px 22px 0;
+  padding: 22px 22px 18px;
+  background: var(--dawn-pink);
+  border-radius: 16px;
+  animation: qr-fadeup 0.6s 0.35s ease-out both;
+}
+
+.qr-plate-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(85, 59, 47, 0.22);
+  gap: 16px;
+}
+
+.qr-plate-row:last-child { border-bottom: none; }
+.qr-plate-row:first-child { padding-top: 0; }
+
+.qr-plate-label {
+  font-family: 'Isidora', sans-serif;
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: rgba(85, 59, 47, 0.6);
+  flex-shrink: 0;
+}
+
+.qr-plate-value {
+  font-family: 'Molitor Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--royal-brown);
+  text-align: right;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.qr-plate-value-light {
+  font-family: 'Isidora', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: none;
+  color: rgba(85, 59, 47, 0.85);
+}
+
+/* SECTION HEADER */
+.qr-section-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 32px 22px 14px;
+  animation: qr-fadeup 0.6s 0.55s ease-out both;
+}
+
+.qr-section-num {
+  font-family: 'Molitor Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mocha-mousse);
+  letter-spacing: 0;
+}
+
+.qr-section-name {
+  font-family: 'Molitor Display', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--royal-brown);
+}
+
+.qr-section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--divider);
+}
+
+/* LINKS */
+.qr-links {
+  margin: 0 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.qr-link-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 4px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--divider-soft);
+  transition: background 0.15s ease;
+  animation: qr-fadeslide 0.5s ease-out both;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.qr-link-row:last-child { border-bottom: none; }
+.qr-link-row:active { background: var(--dawn-pink); }
+
+.qr-link-iconwrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--dawn-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.qr-link-textwrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.qr-link-title {
+  font-family: 'Isidora', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: rgba(85, 59, 47, 0.55);
+}
+
+.qr-link-sub {
+  font-family: 'Molitor Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--royal-brown);
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: pre-line;
+  line-height: 1.18;
+}
+
+.qr-link-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--divider);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* BRANCHES */
+.qr-branches {
+  margin: 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qr-branch {
+  background: var(--dawn-pink);
+  border-radius: 16px;
+  padding: 16px 16px 14px;
+  animation: qr-fadeup 0.5s ease-out both;
+}
+
+.qr-branch-merkez {
+  background: var(--royal-brown);
+  color: var(--san-marco);
+}
+
+.qr-branch-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.qr-branch-badge {
+  font-family: 'Molitor Display', serif;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--san-marco);
+  background: var(--royal-brown);
+  padding: 4px 9px;
+  border-radius: 100px;
+}
+
+.qr-branch-merkez .qr-branch-badge {
+  background: var(--mocha-mousse);
+  color: var(--san-marco);
+}
+
+.qr-branch-istanbul {
+  font-family: 'Isidora', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(85, 59, 47, 0.55);
+}
+
+.qr-branch-merkez .qr-branch-istanbul {
+  color: rgba(242, 239, 236, 0.55);
+}
+
+.qr-branch-name {
+  font-family: 'Molitor Display', serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+  color: var(--royal-brown);
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.qr-branch-merkez .qr-branch-name {
+  color: var(--san-marco);
+}
+
+.qr-branch-addr {
+  font-family: 'Isidora', sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  margin: 0 0 12px;
+  color: rgba(85, 59, 47, 0.8);
+  white-space: pre-line;
+  line-height: 1.35;
+}
+
+.qr-branch-merkez .qr-branch-addr {
+  color: rgba(242, 239, 236, 0.78);
+}
+
+.qr-branch-actions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(85, 59, 47, 0.14);
+}
+
+.qr-branch-merkez .qr-branch-actions {
+  border-top-color: rgba(242, 239, 236, 0.16);
+}
+
+.qr-branch-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: 'Molitor Display', serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--royal-brown);
+  background: rgba(85, 59, 47, 0.08);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.qr-branch-merkez .qr-branch-action {
+  color: var(--san-marco);
+  background: rgba(242, 239, 236, 0.10);
+}
+
+.qr-branch-action:active { transform: scale(0.97); }
+
+.qr-branch-action-primary {
+  background: var(--mocha-mousse);
+  color: var(--san-marco);
+}
+
+.qr-branch-merkez .qr-branch-action-primary {
+  background: var(--san-marco);
+  color: var(--royal-brown);
+}
+
+/* SOCIALS */
+.qr-socials {
+  margin: 0 22px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.qr-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 14px;
+  background: var(--royal-brown);
+  color: var(--san-marco);
+  text-decoration: none;
+  border-radius: 12px;
+  font-family: 'Isidora', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  animation: qr-fadeup 0.5s ease-out both;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease;
+}
+
+.qr-social:active { transform: scale(0.97); }
+
+.qr-social-name {
+  flex: 1;
+  font-family: 'Molitor Display', serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* FOOTER */
+.qr-footer {
+  margin: 36px 22px 8px;
+  animation: qr-fadein 0.8s 1.2s ease-out both;
+}
+
+.qr-footer-rule {
+  height: 1px;
+  background: var(--divider);
+  margin-bottom: 14px;
+}
+
+.qr-footer-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Molitor Display', serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(85, 59, 47, 0.5);
+}
+</style>
+</head>
+<body>
+<div class="qr-root">
+
+  <!-- HERO -->
+  <header class="qr-hero">
+    <div class="qr-hero-bird">
+      <!-- Beak bird watermark -->
+      <svg viewBox="0 0 282.5 160" width="340" height="192" fill="#a47864" style="opacity:0.18" aria-hidden="true">
+        <path d="M53.7,78.7c0,19.3,11.2,35,25,35c13.8,0,25-15.7,25-35c0-19.3-11.2-35-25-35C64.9,43.7,53.7,59.4,53.7,78.7z M80.5,76.9c3.9,3.5,6.6,9,5.8,14.3c-0.6,5.1-3.5,9.6-7.5,12.5c2.1-3.9,3.8-8.3,3.6-12.7c-0.1-4.1-2.3-7.7-5.3-10.5c-1.9-1.8-3.5-3.9-4.6-6.4c-3.3-7.2,0.1-16,6.3-20.4c-3.1,5.6-5.2,12.5-2.1,18.4C77.6,73.9,78.9,75.5,80.5,76.9z"/>
+        <path d="M228.7,78.7c0-19.3-11.2-35-25-35c-13.8,0-25,15.7-25,35c0,19.3,11.2,35,25,35C217.6,113.7,228.7,98.1,228.7,78.7z M202,80.6c-1.9-1.8-3.5-3.9-4.6-6.4c-3.3-7.2,0.1-16,6.3-20.4c-3.1,5.6-5.2,12.5-2.1,18.4c1,1.7,2.2,3.3,3.8,4.8c3.9,3.5,6.6,9,5.8,14.3c-0.6,5.1-3.5,9.6-7.5,12.5c2.1-3.9,3.8-8.3,3.6-12.7C207.2,86.9,205.1,83.4,202,80.6z"/>
+        <path d="M20.9,35C11.4,47.6,6.2,62.8,6.2,78.7c0,19.4,7.5,37.6,21.2,51.3c25.4,25.4,66.1,28.3,94.8,6.7c4.4-3.3,5.3-9.6,2-14c-3.3-4.4-9.6-5.3-14-2c-20.7,15.6-50.2,13.5-68.6-4.9c-9.9-9.9-15.4-23.1-15.4-37.1c0-14,5.4-27.1,15.3-37c0,0,0.1-0.1,0.1-0.1c0,0,0.1-0.1,0.1-0.1c9.9-9.8,23-15.3,37-15.3c14,0,27.2,5.5,37.1,15.4s15.4,23.1,15.4,37.1c0,19.4,7.5,37.6,21.2,51.3c14.1,14.1,32.7,21.2,51.3,21.2c18.6,0,37.1-7.1,51.3-21.2c13.7-13.7,21.2-31.9,21.2-51.3c0-16-5.2-31.2-14.7-43.7l18-18c3.9-3.9,3.9-10.2,0-14.1c-3.9-3.9-10.2-3.9-14.1,0l-18,18c-25.4-19.1-61.2-19.7-87.2-0.2c-4.4,3.3-5.3,9.6-2,14c3.3,4.4,9.6,5.3,14,2c20.7-15.6,50.2-13.4,68.6,4.9c0,0,0,0,0,0s0,0,0,0c9.9,9.9,15.4,23.1,15.4,37.1c0,14-5.5,27.2-15.4,37.1c-20.5,20.5-53.8,20.5-74.2,0c-9.9-9.9-15.4-23.1-15.4-37.1c0-19.4-7.5-37.6-21.2-51.3C116.3,13.8,98.1,6.2,78.7,6.2c-16,0-31.2,5.2-43.7,14.7l-18-18C13.2-1,6.8-1,2.9,2.9C-1,6.8-1,13.2,2.9,17.1L20.9,35z"/>
+        <polygon points="141.2,141.2 116.2,154.1 141.2,190.9 166.3,154.1"/>
+      </svg>
+    </div>
+
+    <div class="qr-hero-logo">
+      <svg viewBox="0 0 282.5 250" width="130" height="115" fill="#f2efec" aria-label="Beak Coffee" role="img">
+        <path d="M53.7,78.7c0,19.3,11.2,35,25,35c13.8,0,25-15.7,25-35c0-19.3-11.2-35-25-35C64.9,43.7,53.7,59.4,53.7,78.7z M80.5,76.9c3.9,3.5,6.6,9,5.8,14.3c-0.6,5.1-3.5,9.6-7.5,12.5c2.1-3.9,3.8-8.3,3.6-12.7c-0.1-4.1-2.3-7.7-5.3-10.5c-1.9-1.8-3.5-3.9-4.6-6.4c-3.3-7.2,0.1-16,6.3-20.4c-3.1,5.6-5.2,12.5-2.1,18.4C77.6,73.9,78.9,75.5,80.5,76.9z"/>
+        <path d="M228.7,78.7c0-19.3-11.2-35-25-35c-13.8,0-25,15.7-25,35c0,19.3,11.2,35,25,35C217.6,113.7,228.7,98.1,228.7,78.7z M202,80.6c-1.9-1.8-3.5-3.9-4.6-6.4c-3.3-7.2,0.1-16,6.3-20.4c-3.1,5.6-5.2,12.5-2.1,18.4c1,1.7,2.2,3.3,3.8,4.8c3.9,3.5,6.6,9,5.8,14.3c-0.6,5.1-3.5,9.6-7.5,12.5c2.1-3.9,3.8-8.3,3.6-12.7C207.2,86.9,205.1,83.4,202,80.6z"/>
+        <path d="M20.9,35C11.4,47.6,6.2,62.8,6.2,78.7c0,19.4,7.5,37.6,21.2,51.3c25.4,25.4,66.1,28.3,94.8,6.7c4.4-3.3,5.3-9.6,2-14c-3.3-4.4-9.6-5.3-14-2c-20.7,15.6-50.2,13.5-68.6-4.9c-9.9-9.9-15.4-23.1-15.4-37.1c0-14,5.4-27.1,15.3-37c0,0,0.1-0.1,0.1-0.1c0,0,0.1-0.1,0.1-0.1c9.9-9.8,23-15.3,37-15.3c14,0,27.2,5.5,37.1,15.4s15.4,23.1,15.4,37.1c0,19.4,7.5,37.6,21.2,51.3c14.1,14.1,32.7,21.2,51.3,21.2c18.6,0,37.1-7.1,51.3-21.2c13.7-13.7,21.2-31.9,21.2-51.3c0-16-5.2-31.2-14.7-43.7l18-18c3.9-3.9,3.9-10.2,0-14.1c-3.9-3.9-10.2-3.9-14.1,0l-18,18c-25.4-19.1-61.2-19.7-87.2-0.2c-4.4,3.3-5.3,9.6-2,14c3.3,4.4,9.6,5.3,14,2c20.7-15.6,50.2-13.4,68.6,4.9c0,0,0,0,0,0s0,0,0,0c9.9,9.9,15.4,23.1,15.4,37.1c0,14-5.5,27.2-15.4,37.1c-20.5,20.5-53.8,20.5-74.2,0c-9.9-9.9-15.4-23.1-15.4-37.1c0-19.4-7.5-37.6-21.2-51.3C116.3,13.8,98.1,6.2,78.7,6.2c-16,0-31.2,5.2-43.7,14.7l-18-18C13.2-1,6.8-1,2.9,2.9C-1,6.8-1,13.2,2.9,17.1L20.9,35z"/>
+        <polygon points="141.2,141.2 116.2,154.1 141.2,190.9 166.3,154.1"/>
+        <path d="M32.8,185c-6.6-0.1-12.7,1.8-17.8,5.1V165c0-8.3-6.7-15-15-15v100h15v-5.1c5.1,3.2,11.1,5.1,17.5,5.1c17.8,0,32.2-14.3,32.5-32C65.3,200.1,50.7,185.2,32.8,185z M32.5,235c-9.7,0-17.5-7.8-17.5-17.5c0-9.7,7.8-17.5,17.5-17.5S50,207.8,50,217.5C50,227.2,42.2,235,32.5,235z"/>
+        <path d="M124.1,192.5c-12.2-10.2-30.3-10-42.3,0.5c-14.2,12.5-14.7,34.2-1.5,47.4c6.4,6.4,14.7,9.5,23,9.5c8.3,0,16.6-3.2,23-9.5c1.9-1.9,3.5-4,4.8-6.2l-0.3-0.1c-7.1-2.6-14.9-2.4-22.1,0c-1.7,0.6-3.5,0.9-5.4,0.9h0c-0.3,0-0.5,0-0.8,0c-0.3,0-0.6,0-0.8-0.1c-0.3,0-0.6-0.1-0.8-0.1c-0.2,0-0.4-0.1-0.7-0.1c-0.4-0.1-1-0.2-1.4-0.3c-0.1,0-0.3-0.1-0.4-0.1c0,0,0,0,0,0c-0.3-0.1-0.5-0.2-0.8-0.2c-0.2-0.1-0.4-0.2-0.6-0.2c-0.6-0.2-1.2-0.5-1.8-0.8c-0.2-0.1-0.5-0.2-0.7-0.4c-0.2-0.1-0.5-0.3-0.7-0.5c-0.2-0.2-0.5-0.3-0.7-0.5c-0.2-0.2-0.5-0.3-0.7-0.5c-1-0.8-1.9-1.7-2.7-2.7c-0.2-0.2-0.3-0.4-0.4-0.6c-0.1-0.2-0.3-0.4-0.4-0.6c-0.1-0.2-0.2-0.3-0.3-0.5c-0.1-0.2-0.2-0.4-0.3-0.5c0,0,0-0.1,0-0.1c-0.1-0.2-0.3-0.5-0.4-0.7c-0.1-0.2-0.2-0.4-0.3-0.5c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.2-0.4-0.2-0.6h48.2c0.1-0.4,0.1-0.8,0.2-1.2c0.3-1.7,0.4-3.4,0.4-5c0-2.1-0.2-4.2-0.6-6.2C133.8,204.2,130.1,197.6,124.1,192.5z M86.9,211.2c0.1-0.2,0.2-0.4,0.2-0.6c0.2-0.5,0.4-1,0.7-1.5c0.1-0.3,0.3-0.5,0.4-0.8c0.2-0.2,0.3-0.5,0.5-0.7c0.2-0.4,0.5-0.7,0.8-1.1c0.2-0.2,0.3-0.4,0.5-0.6c0.1-0.1,0.2-0.2,0.3-0.3c0.2-0.2,0.4-0.4,0.6-0.6c0.4-0.4,0.9-0.8,1.3-1.2c0.2-0.2,0.5-0.4,0.7-0.5c1-0.7,2.1-1.4,3.2-1.9c0.2-0.1,0.3-0.2,0.5-0.2c0.6-0.2,1.2-0.4,1.8-0.6c0.2-0.1,0.4-0.1,0.5-0.1c0.4-0.1,0.8-0.2,1.2-0.2c0.2,0,0.4-0.1,0.6-0.1c0.8-0.1,1.7-0.2,2.5-0.2c1,0,2,0.1,3,0.3c0.2,0,0.4,0.1,0.5,0.1c0.6,0.1,1.2,0.3,1.7,0.5c0.2,0.1,0.5,0.2,0.7,0.2c0.4,0.1,0.7,0.3,1,0.4c0.2,0.1,0.4,0.2,0.6,0.3c0.2,0.1,0.5,0.2,0.7,0.4c0.3,0.2,0.6,0.3,0.8,0.5c0.2,0.1,0.4,0.3,0.6,0.4c1.6,1.1,3.1,2.5,4.2,4c0.2,0.2,0.3,0.4,0.5,0.6c0,0,0,0.1,0.1,0.1c0.1,0.2,0.3,0.4,0.4,0.6c0.1,0.2,0.2,0.4,0.3,0.5c0.1,0.2,0.2,0.3,0.3,0.5c0.1,0.2,0.2,0.4,0.3,0.6c0.1,0.2,0.2,0.5,0.3,0.7c0.1,0.2,0.2,0.4,0.2,0.6H86.9z"/>
+        <path d="M196.7,185v5.1c-5.1-3.3-11.2-5.2-17.8-5.1c-17.9,0.2-32.5,15.1-32.2,33c0.3,17.7,14.7,32,32.5,32c6.4,0,12.4-1.9,17.5-5.1v5.1h15v-50C211.7,191.7,205,185,196.7,185z M179.2,235c-9.7,0-17.5-7.8-17.5-17.5c0-9.7,7.8-17.5,17.5-17.5s17.5,7.8,17.5,17.5C196.7,227.2,188.9,235,179.2,235z"/>
+        <path d="M271,200c5.5-5.5,1.6-15-6.2-15l-23.6,23.6V180c0-8.3-6.7-15-15-15v85h15v-20.1l20.1,20.1h21.2l-30.8-30.8L271,200z"/>
+      </svg>
+    </div>
+
+    <h1 class="qr-hero-tagline">
+      Topraktan<br>
+      <em>fincana,</em><br>
+      fırından kalbe
+    </h1>
+
+    <div class="qr-hero-rule"></div>
+  </header>
+
+  <!-- PLATE -->
+  <section class="qr-plate">
+    <div class="qr-plate-row">
+      <span class="qr-plate-label">İŞLETME</span>
+      <span class="qr-plate-value">Beak Coffee</span>
+    </div>
+    <div class="qr-plate-row">
+      <span class="qr-plate-label">Konsept</span>
+      <span class="qr-plate-value qr-plate-value-light">3. nesil kahvecilik · Roastery</span>
+    </div>
+    <div class="qr-plate-row">
+      <span class="qr-plate-label">Saat</span>
+      <span class="qr-plate-value qr-plate-value-light">Her gün, 24 saat açık</span>
+    </div>
+  </section>
+
+  <!-- 01 İLETİŞİM -->
+  <div class="qr-section-head" style="margin-top:26px">
+    <span class="qr-section-num">01</span>
+    <span class="qr-section-name">İletişim</span>
+    <span class="qr-section-line"></span>
+  </div>
+
+  <div class="qr-links">
+    <!-- Telefon -->
+    <a href="tel:+908504400111" class="qr-link-row" style="animation-delay:0.50s">
+      <span class="qr-link-iconwrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </span>
+      <span class="qr-link-textwrap">
+        <span class="qr-link-title">Telefon</span>
+        <span class="qr-link-sub">0850 440 0111</span>
+      </span>
+      <span class="qr-link-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </span>
+    </a>
+
+    <!-- Adres -->
+    <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14cabbd2f60933bf:0x91b6ec1d16333301" target="_blank" rel="noopener noreferrer" class="qr-link-row" style="animation-delay:0.57s">
+      <span class="qr-link-iconwrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </span>
+      <span class="qr-link-textwrap">
+        <span class="qr-link-title">Adres</span>
+        <span class="qr-link-sub" style="white-space:pre-line">Bahçelievler Mh.&#10;Şevketdağ Sk. No:1 — Beak Plaza</span>
+      </span>
+      <span class="qr-link-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </span>
+    </a>
+
+    <!-- Web -->
+    <a href="https://beakcoffee.com" target="_blank" rel="noopener noreferrer" class="qr-link-row" style="animation-delay:0.64s">
+      <span class="qr-link-iconwrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </span>
+      <span class="qr-link-textwrap">
+        <span class="qr-link-title">Web Sitesi</span>
+        <span class="qr-link-sub">beakcoffee.com</span>
+      </span>
+      <span class="qr-link-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </span>
+    </a>
+
+    <!-- Menü -->
+    <a href="https://beakcoffee.com/kahve-ve-beak/" target="_blank" rel="noopener noreferrer" class="qr-link-row" style="animation-delay:0.71s">
+      <span class="qr-link-iconwrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </span>
+      <span class="qr-link-textwrap">
+        <span class="qr-link-title">Menü</span>
+        <span class="qr-link-sub">Kahve · Tatlı · Atıştırmalık</span>
+      </span>
+      <span class="qr-link-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </span>
+    </a>
+  </div>
+
+  <!-- 02 ŞUBELERİMİZ -->
+  <div class="qr-section-head" style="margin-top:32px">
+    <span class="qr-section-num">02</span>
+    <span class="qr-section-name">Şubelerimiz</span>
+    <span class="qr-section-line"></span>
+  </div>
+
+  <div class="qr-branches">
+
+    <!-- Bahçelievler — Merkez -->
+    <div class="qr-branch qr-branch-merkez" style="animation-delay:0.65s">
+      <div class="qr-branch-head">
+        <span class="qr-branch-badge">Merkez</span>
+        <span class="qr-branch-istanbul">İstanbul</span>
+      </div>
+      <h3 class="qr-branch-name">Bahçelievler</h3>
+      <p class="qr-branch-addr">Haznedar, Bahçelievler&#10;Beak Plaza</p>
+      <div class="qr-branch-actions">
+        <a href="tel:+905357301859" class="qr-branch-action">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Ara</span>
+        </a>
+        <a href="https://maps.app.goo.gl/9XLzocuhBAoy49Au9" target="_blank" rel="noopener noreferrer" class="qr-branch-action qr-branch-action-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Yol Tarifi</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- İncirli -->
+    <div class="qr-branch" style="animation-delay:0.70s">
+      <div class="qr-branch-head">
+        <span class="qr-branch-badge">Açık</span>
+        <span class="qr-branch-istanbul">İstanbul</span>
+      </div>
+      <h3 class="qr-branch-name">İncirli</h3>
+      <p class="qr-branch-addr">İncirli, Bakırköy</p>
+      <div class="qr-branch-actions">
+        <a href="tel:+905357301780" class="qr-branch-action">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Ara</span>
+        </a>
+        <a href="https://maps.app.goo.gl/9XLzocuhBAoy49Au9" target="_blank" rel="noopener noreferrer" class="qr-branch-action qr-branch-action-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Yol Tarifi</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Başakşehir -->
+    <div class="qr-branch" style="animation-delay:0.75s">
+      <div class="qr-branch-head">
+        <span class="qr-branch-badge">Açık</span>
+        <span class="qr-branch-istanbul">İstanbul</span>
+      </div>
+      <h3 class="qr-branch-name">Başakşehir</h3>
+      <p class="qr-branch-addr">Başakşehir 1. Etap&#10;Nova Rezidans</p>
+      <div class="qr-branch-actions">
+        <a href="tel:+905358671739" class="qr-branch-action">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Ara</span>
+        </a>
+        <a href="https://maps.app.goo.gl/9XLzocuhBAoy49Au9" target="_blank" rel="noopener noreferrer" class="qr-branch-action qr-branch-action-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Yol Tarifi</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Şirinevler -->
+    <div class="qr-branch" style="animation-delay:0.80s">
+      <div class="qr-branch-head">
+        <span class="qr-branch-badge">Açık</span>
+        <span class="qr-branch-istanbul">İstanbul</span>
+      </div>
+      <h3 class="qr-branch-name">Şirinevler</h3>
+      <p class="qr-branch-addr">Fetih Caddesi</p>
+      <div class="qr-branch-actions">
+        <a href="tel:+905358671794" class="qr-branch-action">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Ara</span>
+        </a>
+        <a href="https://maps.app.goo.gl/9XLzocuhBAoy49Au9" target="_blank" rel="noopener noreferrer" class="qr-branch-action qr-branch-action-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Yol Tarifi</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Zeytinburnu -->
+    <div class="qr-branch" style="animation-delay:0.85s">
+      <div class="qr-branch-head">
+        <span class="qr-branch-badge">Açık</span>
+        <span class="qr-branch-istanbul">İstanbul</span>
+      </div>
+      <h3 class="qr-branch-name">Zeytinburnu</h3>
+      <p class="qr-branch-addr">Beştelsiz Mh.&#10;Rauf Denktaş Caddesi</p>
+      <div class="qr-branch-actions">
+        <a href="tel:+905382167286" class="qr-branch-action">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Ara</span>
+        </a>
+        <a href="https://maps.app.goo.gl/bGEbQ7HzvbELjzjv8" target="_blank" rel="noopener noreferrer" class="qr-branch-action qr-branch-action-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Yol Tarifi</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bomonti -->
+    <div class="qr-branch" style="animation-delay:0.90s">
+      <div class="qr-branch-head">
+        <span class="qr-branch-badge">Açık</span>
+        <span class="qr-branch-istanbul">İstanbul</span>
+      </div>
+      <h3 class="qr-branch-name">Bomonti</h3>
+      <p class="qr-branch-addr">Bomonti Life Residans</p>
+      <div class="qr-branch-actions">
+        <a href="tel:+905357306334" class="qr-branch-action">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Ara</span>
+        </a>
+        <a href="https://maps.app.goo.gl/qHsYLHDLS1NxGAqSA" target="_blank" rel="noopener noreferrer" class="qr-branch-action qr-branch-action-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Yol Tarifi</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- İstanbul Aydın Üniversitesi — Yeni -->
+    <div class="qr-branch" style="animation-delay:0.95s">
+      <div class="qr-branch-head">
+        <span class="qr-branch-badge" style="background:#3e4127">Yeni</span>
+        <span class="qr-branch-istanbul">İstanbul</span>
+      </div>
+      <h3 class="qr-branch-name">İst. Aydın Üniversitesi</h3>
+      <p class="qr-branch-addr">Beşyol, İnönü Cd. No:38</p>
+      <div class="qr-branch-actions">
+        <a href="tel:+905357306326" class="qr-branch-action">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Ara</span>
+        </a>
+        <a href="https://maps.google.com/?q=Beşyol+İnönü+Cd+No+38+Küçükçekmece+İstanbul" target="_blank" rel="noopener noreferrer" class="qr-branch-action qr-branch-action-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Yol Tarifi</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Küçükçekmece -->
+    <div class="qr-branch" style="animation-delay:1.00s">
+      <div class="qr-branch-head">
+        <span class="qr-branch-badge">Açık</span>
+        <span class="qr-branch-istanbul">İstanbul</span>
+      </div>
+      <h3 class="qr-branch-name">Küçükçekmece</h3>
+      <p class="qr-branch-addr">Küçükçekmece</p>
+      <div class="qr-branch-actions">
+        <a href="tel:+905370407383" class="qr-branch-action">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#553b2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Ara</span>
+        </a>
+        <a href="https://maps.app.goo.gl/9XLzocuhBAoy49Au9" target="_blank" rel="noopener noreferrer" class="qr-branch-action qr-branch-action-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Yol Tarifi</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 03 SOSYAL -->
+  <div class="qr-section-head" style="margin-top:32px">
+    <span class="qr-section-num">03</span>
+    <span class="qr-section-name">Sosyal</span>
+    <span class="qr-section-line"></span>
+  </div>
+
+  <div class="qr-socials">
+    <a href="https://www.instagram.com/beakcoffeetr/" target="_blank" rel="noopener noreferrer" class="qr-social" style="animation-delay:0.85s">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f2efec" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <span class="qr-social-name">Instagram</span>
+    </a>
+    <a href="https://www.tiktok.com/@beakcoffee" target="_blank" rel="noopener noreferrer" class="qr-social" style="animation-delay:0.90s">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f2efec"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.66a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.09z"/></svg>
+      <span class="qr-social-name">TikTok</span>
+    </a>
+    <a href="https://www.facebook.com/p/Beak-Coffee-61574042158926/" target="_blank" rel="noopener noreferrer" class="qr-social" style="animation-delay:0.95s">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f2efec"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
+      <span class="qr-social-name">Facebook</span>
+    </a>
+    <a href="https://www.linkedin.com/company/beak-coffee-roastery" target="_blank" rel="noopener noreferrer" class="qr-social" style="animation-delay:1.00s">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f2efec"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      <span class="qr-social-name">LinkedIn</span>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="qr-footer">
+    <div class="qr-footer-rule"></div>
+    <div class="qr-footer-row">
+      <span>Bİ KAHVE İLE BAŞLAR</span>
+      <span>© 2026</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
